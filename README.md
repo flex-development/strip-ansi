@@ -13,7 +13,7 @@
 [![vitest](https://img.shields.io/badge/-vitest-6e9f18?style=flat\&logo=vitest\&logoColor=ffffff)](https://vitest.dev)
 [![yarn](https://img.shields.io/badge/-yarn-2c8ebb?style=flat\&logo=yarn\&logoColor=ffffff)](https://yarnpkg.com)
 
-Remove [ANSI escape codes][ansi-escape-code]
+Remove [ANSI escape codes][aec]
 
 ## Contents
 
@@ -21,7 +21,7 @@ Remove [ANSI escape codes][ansi-escape-code]
 - [Install](#install)
 - [Use](#use)
 - [API](#api)
-  - [`stripAnsi([flags][, toString])`](#stripansiflags-tostring)
+  - [`stripAnsi(value[, options])`](#stripansivalue-options)
 - [Types](#types)
   - [`Options`](#options)
   - [`ToString<[T]>`](#tostringt)
@@ -29,7 +29,7 @@ Remove [ANSI escape codes][ansi-escape-code]
 
 ## What is this?
 
-This is a tiny, but useful package for removing [ANSI escape codes][ansi-escape-code].
+This is a tiny, but useful package for removing [ANSI escape codes][aec] from a string or stringified value.
 
 ## Install
 
@@ -76,19 +76,51 @@ bun add @flex-development/strip-ansi
 
 ## Use
 
-**TODO**: use
+[`example.mjs`](./example.mjs):
+
+```js
+import { ansiRegex } from '@flex-development/ansi-regex'
+import c from '@flex-development/colors'
+import { stripAnsi } from '@flex-development/strip-ansi'
+
+const hello = c.bgBlue(c.bold('hello world 🌎'))
+const hi = stripAnsi(hello, { flags: { u: false } })
+
+console.log(`${JSON.stringify(hello)}:`, ansiRegex().test(hello))
+console.log(`${JSON.stringify(hi)}:`, ansiRegex().test(hi))
+```
+
+...yields
+
+```sh
+"\u001b[44m\u001b[1mhello world 🌎\u001b[22m\u001b[49m": true
+"hello world 🌎": false
+```
 
 ## API
 
 This package exports the following identifiers:
 
-- [`stripAnsi`](#stripansiflags-tostring)
+- [`stripAnsi`](#stripansivalue-options)
 
-The default export is [`stripAnsi`](#stripansiflags-tostring).
+The default export is [`stripAnsi`](#stripansivalue-options).
 
-### `stripAnsi([flags][, toString])`
+### `stripAnsi(value[, options])`
 
-**TODO**: `stripAnsi([flags][, toString])`
+Remove ANSI escape codes from `value`.
+
+#### Parameters
+
+- `value` (`unknown`)
+  — the string or value to remove escape codes from.\
+  non-string values will be converted to strings (i.e. `options.toString(value)`)
+- `options` ([`Options`](#options) | `null` | `undefined`, optional)
+  — options for removing escape codes
+  - **default**: `{ flags: { g: true, u: true }, toString: String }`
+
+#### Returns
+
+(`string`) The stringified `value` with ANSI escape codes removed
 
 ## Types
 
@@ -96,11 +128,37 @@ This package is fully typed with [TypeScript][].
 
 ### `Options`
 
-**TODO**: `Options`
+Options for removing ANSI escape codes (`interface`).
+
+#### Properties
+
+- `flags?` ([`Flags`][flags] | `null` | `undefined`, optional)
+  — record, where each key is a regular expression flag and each truthy value indicates if the flag should be applied to
+  the regular expression matching ansi escape codes
+- `toString?` ([`ToString`](#tostringt) | `null` | `undefined`, optional)
+  — convert a value to a string
 
 ### `ToString<[T]>`
 
-**TODO**: `ToString<[T]>`
+Convert `value` to a string (`type`).
+
+```ts
+type ToString<T = any> = (this: void, value: T) => string
+```
+
+#### Type Parameters
+
+- `T` (`any`, optional)
+  — the thing to stringify
+
+#### Parameters
+
+- `value` (`T`)
+  — the thing to stringify
+
+#### Returns
+
+(`string`) The stringified `value`
 
 ## Contribute
 
@@ -109,13 +167,15 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 This project has a [code of conduct](./CODE_OF_CONDUCT.md). By interacting with this repository, organization, or
 community you agree to abide by its terms.
 
-[ansi-escape-code]: https://en.wikipedia.org/wiki/ANSI_escape_code
+[aec]: https://en.wikipedia.org/wiki/ANSI_escape_code
 
 [bun]: https://bun.sh
 
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 
 [esmsh]: https://esm.sh
+
+[flags]: https://github.com/flex-development/ansi-regex#flags
 
 [typescript]: https://www.typescriptlang.org
 

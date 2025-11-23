@@ -1420,13 +1420,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@faker-js/faker@npm:10.1.0":
-  version: 10.1.0
-  resolution: "@faker-js/faker@npm:10.1.0"
-  checksum: 10/3332795debec5793dfaea79e740ed44bd7d94fb43cea8b1bd5d59af19f15c4a9533fa696cfebf024a9bba5d9d1a8a28cde40a92670c03cc11170a3025e551e65
-  languageName: node
-  linkType: hard
-
 "@flex-development/aggregate-error-ponyfill@npm:3.1.1":
   version: 3.1.1
   resolution: "@flex-development/aggregate-error-ponyfill@npm:3.1.1"
@@ -1434,6 +1427,13 @@ __metadata:
     "@types/es-abstract": "npm:1.17.3"
     es-abstract: "npm:1.21.1"
   checksum: 10/8fe64d928008289cc48cc6928cbdd18ee5b53e1395e3150c15f40777b6c95ce3b1685cf05a0c4505401c941bd01be156d7491264d4e8709d8e15d565f2788e27
+  languageName: node
+  linkType: hard
+
+"@flex-development/ansi-regex@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@flex-development/ansi-regex@npm:1.0.0"
+  checksum: 10/31622b2be7ded14b8d2092e9fc8c011d865bbdfcbbfc164d688d9be228236f54369f67466d3a870cdcbbd939da9bec7cb17e44113afb6dcd2cfa1c11f5431e54
   languageName: node
   linkType: hard
 
@@ -1888,7 +1888,7 @@ __metadata:
     "@arethetypeswrong/cli": "npm:0.18.2"
     "@commitlint/cli": "npm:20.1.0"
     "@commitlint/types": "npm:20.0.0"
-    "@faker-js/faker": "npm:10.1.0"
+    "@flex-development/ansi-regex": "npm:1.0.0"
     "@flex-development/colors": "npm:1.1.1"
     "@flex-development/commitlint-config": "npm:1.0.1"
     "@flex-development/eslint-config": "npm:1.1.1"

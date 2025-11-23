@@ -103,7 +103,7 @@
     "fix:dedupe": "yarn dedupe --strategy=highest",
     "fix:format": "dprint fmt",
     "fix:lint": "yarn check:lint --cache --fix",
-    "postinstall": "[ -f ./.git ] && [ -f ./node_modules/.bin/husky ] && chmod +x .husky/* && husky || exit 0",
+    "postinstall": "[ -f ./.git ] && [ -f ./node_modules/.bin/husky ] && chmod +x .husky/_/* && husky || exit 0",
     "postpack": "toggle-scripts +postinstall",
     "postpublish": "toggle-scripts +prepack",
     "prepack": "toggle-scripts -postinstall && yarn build",
@@ -120,11 +120,13 @@
     "typecheck": "yarn test --typecheck --mode=typecheck",
     "typecheck:ui": "yarn test:ui --typecheck --mode=typecheck"
   },
+  "dependencies": {
+    "@flex-development/ansi-regex": "1.0.0"
+  },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.2",
     "@commitlint/cli": "20.1.0",
     "@commitlint/types": "20.0.0",
-    "@faker-js/faker": "10.1.0",
     "@flex-development/colors": "1.1.1",
     "@flex-development/commitlint-config": "1.0.1",
     "@flex-development/eslint-config": "1.1.1",

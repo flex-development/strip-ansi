@@ -3,4 +3,4 @@
  * @module strip-ansi/types
  */
 
-export type {}
+export type { default as ToString } from '#types/to-string'

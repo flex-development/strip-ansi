@@ -3,4 +3,4 @@
  * @module strip-ansi/interfaces
  */
 
-export type {}
+export type { default as Options } from '#interfaces/options'
