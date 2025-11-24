@@ -1451,10 +1451,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/colors@npm:1.1.1":
-  version: 1.1.1
-  resolution: "@flex-development/colors@npm:1.1.1"
-  checksum: 10/4f7ff00442cf067011dc411d577fefe01b85576be36c146366336c1414a979e665047a4a863ebcdd5f7a5e32a0683df2c1d6c55fa9237a2e2a90ed27d619770d
+"@flex-development/colors@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@flex-development/colors@npm:2.0.0"
+  checksum: 10/127b383643e16c544549459396480133fbf51a0fb75319786547672f7358a7ee7d6e14d0b2baec076c9f7d5566448b0dc71b0ff5db5b8bbda65102d86db7576a
   languageName: node
   linkType: hard
 
@@ -1889,7 +1889,7 @@ __metadata:
     "@commitlint/cli": "npm:20.1.0"
     "@commitlint/types": "npm:20.0.0"
     "@flex-development/ansi-regex": "npm:1.0.0"
-    "@flex-development/colors": "npm:1.1.1"
+    "@flex-development/colors": "npm:2.0.0"
     "@flex-development/commitlint-config": "npm:1.0.1"
     "@flex-development/eslint-config": "npm:1.1.1"
     "@flex-development/grease": "npm:3.0.0-alpha.9"
